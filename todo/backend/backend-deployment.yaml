@@ -1,0 +1,36 @@
+version: v1
+kind: Deployment
+
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend 
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:     
+      labels:
+        app: backend 
+
+    spec:
+      containers: 
+        - name: backend
+          image: todo-backend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: VITE_API_URL
+              value: "http://backend-app-service:5000/api/todos"
+          volumeMounts:
+            - name: backend-volume
+              mountPath: /app   
+      volumes:
+        - name: backend-volume 
+          hostPath: 
+            path: /var/lib/backend
+            type: Directory
+            
