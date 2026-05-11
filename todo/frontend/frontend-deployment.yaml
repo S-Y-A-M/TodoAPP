@@ -1,0 +1,35 @@
+version: v1
+kind: Deployment
+
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend 
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:     
+      labels:
+        app: frontend 
+
+    spec:
+      containers: 
+        - name: frontend
+          image: todo-frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: VITE_API_URL
+              value: "http://frontend-app-service:3000"
+          volumeMounts:
+            - name: frontend-volume
+              mountPath: /app   
+      volumes:
+        - name: frontend-volume 
+          hostPath: 
+            path: /var/lib/frontend
+            type: Directory

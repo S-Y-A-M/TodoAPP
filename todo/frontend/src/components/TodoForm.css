@@ -1,0 +1,66 @@
+.todo-form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.input-title,
+.input-description {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.input-title:focus,
+.input-description:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.input-description {
+  font-size: 13px;
+  color: #666;
+}
+
+.btn-add {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 15px;
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+}
+
+.success-message {
+  color: #22a366;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
